@@ -9,6 +9,8 @@ def area(a, h):
         Returns:
             a * h / 2 (float): area of right triangle with cathetus a and height h
     '''
+    if (a < 0 or h < 0): raise ValueError
+
     return a * h / 2 
 
 def perimeter(a, b, c): 
@@ -23,4 +25,6 @@ def perimeter(a, b, c):
         Returns:
             a + b + c (float): perimeter of triangle with sides a, b and c
     '''
+    if (a < 0 or b < 0 or c < 0): raise ValueError
+
     return a + b + c 

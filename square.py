@@ -8,6 +8,9 @@ def area(a):
         Returns:
             a * a (float): area of square from given side a
     '''
+
+    if (a < 0): raise ValueError
+
     return a * a
 
 
@@ -21,5 +24,7 @@ def perimeter(a):
         Returns:
             4 * a (float): perimeter of square with given side a
     '''
+    if (a < 0): raise ValueError
+
     return 4 * a
 
