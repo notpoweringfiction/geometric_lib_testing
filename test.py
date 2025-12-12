@@ -35,16 +35,16 @@ class RectangleTestCase(unittest.TestCase):
 
 
    def test_area_first_negative_num(self):
-      res = rectangle.area(-20, 1)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            rectangle.area(-20, 1)
    
    def test_area_second_negative_num(self):
-      res = rectangle.area(5, -12)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            rectangle.area(5, -12)
    
    def test_area_both_negative_num(self):
-      res = rectangle.area(-20, -12)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            rectangle.area(-20, -12)
       
    # Perimeter tests
 
@@ -77,16 +77,16 @@ class RectangleTestCase(unittest.TestCase):
       self.assertEqual(res, 2 * (4_294_967_296 + 2_124_413_981))
 
    def test_perimeter_first_negative_num(self):
-      res = rectangle.perimeter(-20, 1)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            rectangle.perimeter(-20, 1)
    
    def test_perimeter_second_negative_num(self):
-      res = rectangle.perimeter(5, -12)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            rectangle.perimeter(5, -12)
    
    def test_perimeter_both_negative_num(self):
-      res = rectangle.perimeter(-20, -12)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            rectangle.perimeter(-20, -12)
     
 
 class TriangleTestCase(unittest.TestCase):
@@ -122,16 +122,16 @@ class TriangleTestCase(unittest.TestCase):
 
 
    def test_area_first_negative_num(self):
-      res = triangle.area(-20, 1)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            triangle.area(-20, 1)
    
    def test_area_second_negative_num(self):
-      res = triangle.area(5, -12)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            triangle.area(5, -12)
    
    def test_area_both_negative_num(self):
-      res = triangle.area(-20, -12)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            triangle.area(-20, -12)
       
    # Perimeter tests
 
@@ -164,20 +164,20 @@ class TriangleTestCase(unittest.TestCase):
       self.assertEqual(res, 4_294_967_296 + 2_124_413_981 + 3_164_531_771)
 
    def test_perimeter_first_negative_num(self):
-      res = triangle.perimeter(-20, 1, 4)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            triangle.perimeter(-20, 1, 4)
    
    def test_perimeter_second_negative_num(self):
-      res = triangle.perimeter(5, -12, 10)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            triangle.perimeter(5, -12, 10)
    
    def test_perimeter_third_negative_num(self):
-      res = triangle.perimeter(5, 1, -100)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            triangle.perimeter(5, 1, -100)
 
    def test_perimeter_all_negative_num(self):
-      res = triangle.perimeter(-20, -12, -275)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            triangle.perimeter(-20, -12, -275)
     
 
 
@@ -206,8 +206,8 @@ class SquareTestCase(unittest.TestCase):
 
 
    def test_area_negative_num(self):
-      res = square.area(-12)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            square.area(-12)
       
    # Perimeter tests
 
@@ -233,7 +233,8 @@ class SquareTestCase(unittest.TestCase):
 
    def test_perimeter_negative_num(self):
       res = square.perimeter(-20)
-      self.assertEqual(res, -1, "Negative numbers should return error indication")
+      with self.assertRaises(ValueError):
+            square.perimeter(-20)
     
 
 class CircleTestCase(unittest.TestCase):
@@ -265,8 +266,8 @@ class CircleTestCase(unittest.TestCase):
        self.assertAlmostEqual(res, 4_294_967_296 * 4_294_967_296 * est_pi, delta=0.05)
 
     def test_area_negative_num(self):
-       res = circle.area(-20)
-       self.assertEqual(res, -1, "Negative numbers should return error indication")
+       with self.assertRaises(ValueError):
+            circle.area(-20)
        
     # Perimeter tests
 
@@ -296,5 +297,5 @@ class CircleTestCase(unittest.TestCase):
        self.assertAlmostEqual(res, 2 * 4_294_967_296 * est_pi, delta=0.05)
 
     def test_perimeter_negative_num(self):
-       res = circle.perimeter(-15)
-       self.assertEqual(res, -1, "Negative numbers should return error indication")
+       with self.assertRaises(ValueError):
+            circle.perimeter(-15)
