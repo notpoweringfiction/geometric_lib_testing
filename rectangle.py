@@ -9,6 +9,8 @@ def area(a, b):
         Returns:
             a * b (float): area of rectangle with adjacent sides a, b
     '''
+    if (a < 0 or b < 0): raise ValueError
+
     return a * b 
 
 def perimeter(a, b): 
@@ -22,4 +24,6 @@ def perimeter(a, b):
         Returns:
             (a + b) * 2 (float): perimeter of rectangle with adjacent sides a, b
     '''
+    if (a < 0 or b < 0): raise ValueError
+
     return (a + b) * 2 
